@@ -22,3 +22,5 @@ DerivedData
 # CocoaPod
 Pods/*
 vendor/bundle
+Carthage/Checkouts
+!Carthage/Build
