@@ -15,6 +15,8 @@
 		5D96706E2621B3AF00265411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D96706C2621B3AF00265411 /* LaunchScreen.storyboard */; };
 		5D9670792621B3B000265411 /* sampleProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9670782621B3B000265411 /* sampleProductTests.swift */; };
 		5D9670842621B3B000265411 /* sampleProductUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9670832621B3B000265411 /* sampleProductUITests.swift */; };
+		5D96709F2622F75C00265411 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D96709E2622F75C00265411 /* Alamofire.framework */; };
+		5D9670A02622F75C00265411 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5D96709E2622F75C00265411 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5D9670A12622F75C00265411 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5D9670A02622F75C00265411 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5D96705E2621B3AC00265411 /* sampleProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sampleProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D9670612621B3AC00265411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +65,7 @@
 		5D96707F2621B3B000265411 /* sampleProductUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sampleProductUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D9670832621B3B000265411 /* sampleProductUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sampleProductUITests.swift; sourceTree = "<group>"; };
 		5D9670852621B3B000265411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D96709E2622F75C00265411 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D96709F2622F75C00265411 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +101,7 @@
 				5D9670772621B3B000265411 /* sampleProductTests */,
 				5D9670822621B3B000265411 /* sampleProductUITests */,
 				5D96705F2621B3AC00265411 /* Products */,
+				5D96709D2622F75C00265411 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +147,14 @@
 			path = sampleProductUITests;
 			sourceTree = "<group>";
 		};
+		5D96709D2622F75C00265411 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D96709E2622F75C00265411 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +165,8 @@
 				5D96705A2621B3AC00265411 /* Sources */,
 				5D96705B2621B3AC00265411 /* Frameworks */,
 				5D96705C2621B3AC00265411 /* Resources */,
+				5D9670A12622F75C00265411 /* Embed Frameworks */,
+				5D9670A22622F77900265411 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -252,6 +281,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D9670A22622F77900265411 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5D96705A2621B3AC00265411 /* Sources */ = {
@@ -438,6 +488,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R57QJP8SY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = sampleProduct/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,6 +511,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R57QJP8SY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = sampleProduct/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
